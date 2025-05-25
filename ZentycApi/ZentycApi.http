@@ -1,0 +1,6 @@
+@ZentycApi_HostAddress = http://localhost:5233
+
+GET {{ZentycApi_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

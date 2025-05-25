@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35931.197 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zentyc", "Zentyc\Zentyc.csproj", "{0C2A9F01-17E0-4E3A-B42B-0A03850E9667}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZentycApi", "ZentycApi\ZentycApi.csproj", "{7A29144E-E7C5-4154-9EF0-DC7447BB3DDD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0C2A9F01-17E0-4E3A-B42B-0A03850E9667}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C2A9F01-17E0-4E3A-B42B-0A03850E9667}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C2A9F01-17E0-4E3A-B42B-0A03850E9667}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C2A9F01-17E0-4E3A-B42B-0A03850E9667}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7A29144E-E7C5-4154-9EF0-DC7447BB3DDD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7A29144E-E7C5-4154-9EF0-DC7447BB3DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7A29144E-E7C5-4154-9EF0-DC7447BB3DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7A29144E-E7C5-4154-9EF0-DC7447BB3DDD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {287CBEA8-9B36-4C6D-8B94-96D6B77E071F}
+	EndGlobalSection
+EndGlobal
