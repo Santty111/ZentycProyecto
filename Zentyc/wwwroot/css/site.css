@@ -1,22 +1,72 @@
-html {
-  font-size: 14px;
+:root {
+    --primary-color: #0d47a1; /* Azul principal */
+    --secondary-color: #e3f2fd; /* Fondo suave celeste */
+    --text-dark: #2e2e2e;
+    --accent-color: #00acc1; /* Azul claro para efectos */
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
-}
-
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-html {
-  position: relative;
-  min-height: 100%;
-}
-
+/* Fuente general */
 body {
-  margin-bottom: 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
 }
+
+/* NAVBAR personalizado */
+.navbar {
+    background-color: var(--primary-color) !important;
+}
+
+    .navbar .nav-link,
+    .navbar-brand {
+        color: white !important;
+        font-weight: 600;
+    }
+
+        .navbar .nav-link:hover {
+            color: var(--accent-color) !important;
+        }
+
+/* Botón hamburguesa */
+.navbar-toggler {
+    border-color: white;
+}
+
+/* MAIN con caja blanca */
+main {
+    flex: 1;
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
+    border-radius: 12px; /* Borde redondeado */
+    padding: 2rem; /* Espaciado interno */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+
+
+
+.welcome-section {
+    min-height: 70vh;
+    background: linear-gradient(135deg, #e3f2fd, #ffffff);
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+    .welcome-section h1 {
+        font-family: 'Segoe UI', sans-serif;
+        letter-spacing: 1px;
+    }
+
+    .welcome-section p {
+        font-size: 1.2rem;
+        max-width: 600px;
+    }
+
+    .welcome-section .btn {
+        transition: all 0.3s ease-in-out;
+    }
+
+        .welcome-section .btn:hover {
+            background-color: #0d47a1;
+            color: white;
+        }

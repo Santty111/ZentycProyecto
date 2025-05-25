@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Zentyc.Models.Pedido>
+
+@{
+    ViewData["Title"] = "Pedidos";
+}
+
+<h1 class="mb-4">Pedidos</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Crear nuevo</a>
+</p>
+
+<table class="table table-striped table-bordered">
+    <thead class="table-primary">
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.FechaPedido)</th>
+            <th>@Html.DisplayNameFor(model => model.CantidadSolicitada)</th>
+            <th>@Html.DisplayNameFor(model => model.Usuario)</th>
+            <th>@Html.DisplayNameFor(model => model.Inventario)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.FechaPedido)</td>
+                <td>@Html.DisplayFor(modelItem => item.CantidadSolicitada)</td>
+                <td>@Html.DisplayFor(modelItem => item.Usuario.Nombre)</td> 
+                <td>@Html.DisplayFor(modelItem => item.Inventario.Nombre)</td> 
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PedidoId" class="btn btn-sm btn-warning">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.PedidoId" class="btn btn-sm btn-info text-white">Detalles</a>
+                    <a asp-action="Delete" asp-route-id="@item.PedidoId" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

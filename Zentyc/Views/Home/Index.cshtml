@@ -1,8 +1,11 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Inicio";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="welcome-section text-center d-flex flex-column justify-content-center align-items-center mt-5">
+    <h1 class="display-3 fw-bold text-primary mb-4">Bienvenido a Zentyk</h1>
+    <p class="lead text-dark mb-4">Moda personalizada, tecnología eficiente. Administra tu negocio con estilo.</p>
+    <a asp-controller="Home" asp-action="Privacy" class="btn btn-outline-primary px-4 py-2 rounded-pill">
+        Conoce más
+    </a>
 </div>

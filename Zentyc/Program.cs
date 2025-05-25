@@ -1,4 +1,9 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Zentyc.Data;
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<WebContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("WebContext") ?? throw new InvalidOperationException("Connection string 'WebContext' not found.")));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
