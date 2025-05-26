@@ -1,0 +1,43 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiZentyc.ViewModels"
+             x:Class="MauiZentyc.Views.AddInventarioPage"
+             Title="Nuevo Producto"
+             x:DataType="viewmodel:InventarioViewModel">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Frame Padding="15" CornerRadius="10" HasShadow="True">
+                <StackLayout Spacing="10">
+                    <Label Text="Nuevo Producto" 
+                           FontAttributes="Bold" FontSize="18"
+                           HorizontalOptions="Center"/>
+
+                    <Entry Placeholder="Nombre*" 
+                           Text="{Binding NuevoProducto.Nombre, Mode=TwoWay}"
+                           ClearButtonVisibility="WhileEditing"/>
+
+                    <Editor Placeholder="Descripción" 
+                           Text="{Binding NuevoProducto.Descripcion, Mode=TwoWay}"
+                           AutoSize="TextChanges"
+                           HeightRequest="100"/>
+
+                    <Entry Placeholder="Precio*" 
+                           Keyboard="Numeric"
+                           Text="{Binding NuevoProducto.Precio, Mode=TwoWay}"/>
+
+                    <Entry Placeholder="Cantidad en stock*" 
+                           Keyboard="Numeric"
+                           Text="{Binding NuevoProducto.Cantidad, Mode=TwoWay}"/>
+
+                    <Button Text="GUARDAR PRODUCTO" 
+                            Command="{Binding AddProductoCommand}"
+                            BackgroundColor="#512DA8"
+                            TextColor="White"
+                            Margin="0,20,0,0"
+                            FontAttributes="Bold"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

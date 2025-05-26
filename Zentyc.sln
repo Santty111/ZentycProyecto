@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zentyc", "Zentyc\Zentyc.csproj", "{0C2A9F01-17E0-4E3A-B42B-0A03850E9667}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZentycApi", "ZentycApi\ZentycApi.csproj", "{7A29144E-E7C5-4154-9EF0-DC7447BB3DDD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MauiZentyc", "MauiZentyc\MauiZentyc.csproj", "{3C17DCC0-0636-4118-91A5-0CDDC11508A9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,12 @@ Global
 		{7A29144E-E7C5-4154-9EF0-DC7447BB3DDD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7A29144E-E7C5-4154-9EF0-DC7447BB3DDD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7A29144E-E7C5-4154-9EF0-DC7447BB3DDD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C17DCC0-0636-4118-91A5-0CDDC11508A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C17DCC0-0636-4118-91A5-0CDDC11508A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C17DCC0-0636-4118-91A5-0CDDC11508A9}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3C17DCC0-0636-4118-91A5-0CDDC11508A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C17DCC0-0636-4118-91A5-0CDDC11508A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C17DCC0-0636-4118-91A5-0CDDC11508A9}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

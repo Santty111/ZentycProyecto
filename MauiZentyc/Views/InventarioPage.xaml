@@ -1,0 +1,72 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiZentyc.ViewModels"
+             xmlns:models="clr-namespace:MauiZentyc.Models"
+             x:Class="MauiZentyc.Views.InventarioPage"
+             Title="Inventario"
+             x:DataType="viewmodel:InventarioViewModel">
+
+    <Grid RowDefinitions="*,Auto">
+        <RefreshView IsRefreshing="{Binding IsBusy}"
+                     Command="{Binding RefreshCommand}"
+                     Grid.Row="0">
+            <CollectionView ItemsSource="{Binding Items}"
+                            SelectionMode="None"
+                            EmptyView="No hay productos disponibles">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Inventario">
+                        <Frame Margin="10" 
+                               Padding="15"
+                               CornerRadius="10"
+                               HasShadow="True">
+                            <Grid ColumnDefinitions="Auto,*,Auto"
+                                  RowDefinitions="Auto,Auto"
+                                  ColumnSpacing="10">
+
+
+                                <!-- Nombre -->
+                                <Label Text="{Binding Nombre}"
+                                       FontAttributes="Bold"
+                                       FontSize="16"
+                                       Grid.Column="1"/>
+
+                                <!-- Precio y Stock -->
+                                <HorizontalStackLayout Grid.Column="1" 
+                                                      Grid.Row="1"
+                                                      Spacing="15">
+                                    <Label Text="{Binding Precio, StringFormat='Precio: {0:C}'}"
+                                           TextColor="Green"/>
+                                    <Label Text="{Binding Cantidad, StringFormat='Stock: {0}'}"
+                                           TextColor="{Binding Cantidad, Converter={StaticResource StockToColorConverter}}"/>
+                                </HorizontalStackLayout>
+
+                                <!-- Botón de acción -->
+                                <Button Text="Ver"
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodel:InventarioViewModel}}, Path=ItemTappedCommand}"
+                                        CommandParameter="{Binding .}"
+                                        Grid.Column="2"
+                                        Grid.RowSpan="2"
+                                        VerticalOptions="Center"
+                                        HorizontalOptions="End"
+                                        WidthRequest="80"/>
+                            </Grid>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </RefreshView>
+
+        <!-- Activity Indicator -->
+        <ActivityIndicator IsVisible="{Binding IsBusy}"
+                           IsRunning="{Binding IsBusy}"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           Grid.RowSpan="2"/>
+    </Grid>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Añadir" 
+                     Command="{Binding AddItemCommand}"
+                     IconImageSource="add_icon.png"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

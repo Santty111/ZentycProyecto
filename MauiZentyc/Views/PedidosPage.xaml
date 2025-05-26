@@ -1,0 +1,47 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiZentyc.ViewModels"
+             xmlns:model="clr-namespace:MauiZentyc.Models"
+             xmlns:converters="clr-namespace:MauiZentyc.Converts"
+             x:Class="MauiZentyc.Views.PedidosPage"
+             Title="{Binding Title}"
+             x:DataType="viewmodel:PedidoViewModel">
+
+    <RefreshView IsRefreshing="{Binding IsBusy}"
+                 Command="{Binding RefreshCommand}">
+        <CollectionView ItemsSource="{Binding Items}"
+                        SelectionMode="None"
+                        EmptyView="No hay pedidos registrados">
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="model:Pedido">
+                    <Frame Padding="15" CornerRadius="10" Margin="10" HasShadow="True">
+                        <Grid ColumnDefinitions="*,Auto" RowDefinitions="Auto,Auto,Auto,Auto">
+                            <Label Text="{Binding Fecha, StringFormat='{0:dd/MM/yyyy HH:mm}'}"
+                                   FontAttributes="Bold"
+                                   Grid.Column="0" Grid.Row="0"/>
+
+                            <Label Text="{Binding Producto.Nombre, StringFormat='Producto: {0}'}"
+                                   Grid.Column="0" Grid.Row="1"/>
+
+                            <Label Text="{Binding Cliente.Nombre, StringFormat='Cliente: {0}'}"
+                                   Grid.Column="0" Grid.Row="2"/>
+
+                            <Label Text="{Binding Estado}"
+                                   TextColor="{Binding Estado, Converter={StaticResource EstadoToColorConverter}}"
+                                   FontAttributes="Bold"
+                                   Grid.Column="1" Grid.Row="0"/>
+
+                            <Label Text="{Binding Cantidad, StringFormat='Cant: {0}'}"
+                                   Grid.Column="1" Grid.Row="1"/>
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </RefreshView>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="? Nuevo" Command="{Binding AddCommand}"/>
+    </ContentPage.ToolbarItems>
+</ContentPage>

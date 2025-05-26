@@ -1,0 +1,45 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:MauiZentyc.ViewModels"
+             x:Class="MauiZentyc.Views.AddUsuarioPage"
+             Title="Nuevo Usuario"
+             x:DataType="viewmodel:UsuarioViewModel">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Frame Padding="15" CornerRadius="10" HasShadow="True">
+                <StackLayout Spacing="10">
+                    <Label Text="Nuevo Usuario" 
+                           FontAttributes="Bold" FontSize="18"
+                           HorizontalOptions="Center"/>
+
+                    <Entry Placeholder="Nombre Completo*" 
+                           Text="{Binding NuevoUsuario.Nombre, Mode=TwoWay}"
+                           ClearButtonVisibility="WhileEditing"/>
+
+                    <Entry Placeholder="Correo Electrónico*" 
+                           Keyboard="Email"
+                           Text="{Binding NuevoUsuario.Correo, Mode=TwoWay}"/>
+
+                    <Entry Placeholder="Teléfono" 
+                           Keyboard="Telephone"
+                           Text="{Binding NuevoUsuario.Telefono, Mode=TwoWay}"/>
+
+                    <Entry Placeholder="Dirección" 
+                           Text="{Binding NuevoUsuario.Direccion, Mode=TwoWay}"/>
+
+                    <Picker Title="Tipo de Usuario"
+                            ItemsSource="{Binding TiposUsuario}"
+                            SelectedItem="{Binding NuevoUsuario.Tipo}"/>
+
+                    <Button Text="REGISTRAR USUARIO" 
+                            Command="{Binding SaveCommand}"
+                            BackgroundColor="#512DA8"
+                            TextColor="White"
+                            Margin="0,20,0,0"
+                            FontAttributes="Bold"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

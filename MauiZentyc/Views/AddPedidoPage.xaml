@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:viewmodel="clr-namespace:MauiZentyc.ViewModels"
+             x:Class="MauiZentyc.Views.AddPedidoPage"
+             Title="Nuevo Pedido"
+             x:DataType="viewmodel:PedidoViewModel">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+            <Frame Padding="15" CornerRadius="10" HasShadow="True">
+                <StackLayout Spacing="10">
+                    <Label Text="Nuevo Pedido" 
+                           FontAttributes="Bold" FontSize="18"
+                           HorizontalOptions="Center"/>
+
+                    <Picker Title="Seleccione Producto*"
+                            ItemsSource="{Binding Productos}"
+                            ItemDisplayBinding="{Binding Nombre}"
+                            SelectedItem="{Binding NuevoPedido.Producto}">
+                        <Picker.Behaviors>
+                            <toolkit:EventToCommandBehavior 
+                                EventName="SelectedIndexChanged"
+                                Command="{Binding ProductoSeleccionadoCommand}"/>
+                        </Picker.Behaviors>
+                    </Picker>
+
+                    <Picker Title="Seleccione Cliente*"
+                            ItemsSource="{Binding Clientes}"
+                            ItemDisplayBinding="{Binding Nombre}"
+                            SelectedItem="{Binding NuevoPedido.Cliente}"/>
+
+                    <Entry Placeholder="Cantidad*" 
+                           Keyboard="Numeric"
+                           Text="{Binding NuevoPedido.Cantidad, Mode=TwoWay}"/>
+
+                    <Picker Title="Estado"
+                            ItemsSource="{Binding Estados}"
+                            SelectedItem="{Binding NuevoPedido.Estado}"/>
+
+                    <Editor Placeholder="Notas" 
+                           Text="{Binding NuevoPedido.Notas, Mode=TwoWay}"
+                           AutoSize="TextChanges"
+                           HeightRequest="80"/>
+
+                    <Button Text="REGISTRAR PEDIDO" 
+                            Command="{Binding SaveCommand}"
+                            BackgroundColor="#512DA8"
+                            TextColor="White"
+                            Margin="0,20,0,0"
+                            FontAttributes="Bold"/>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
